@@ -24,28 +24,31 @@ const Tickets = () => {
                 <img src="/lamp.png" className="absolute bottom-5 left-[5%] w-16 md:w-32 opacity-60 animate-float" style={{ animationDelay: '2.5s' }} />
             </div>
 
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-6xl">
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 w-full max-w-6xl">
 
                 {/* Get Tickets Card */}
-                <div className="bg-[#592E4D]/80 backdrop-blur-md rounded-[3rem] p-12 flex flex-col items-center justify-center text-center border border-white/10 shadow-xl min-h-[400px]">
-                    <h2 className="font-nico text-white text-5xl md:text-6xl mb-2">Get</h2>
-                    <h2 className="font-nico text-white text-5xl md:text-6xl mb-12">Tickets</h2>
+                <div className="bg-[#592E4D]/80 backdrop-blur-md rounded-[2.5rem] p-8 md:p-12 flex flex-col items-center justify-center text-center border border-white/10 shadow-[0_0_40px_rgba(139,95,128,0.4)] min-h-[350px] md:min-h-[400px] animate-fade-in-up">
+                    <h2 className="font-nico text-white text-4xl sm:text-5xl md:text-6xl mb-2">Get</h2>
+                    <h2 className="font-nico text-white text-4xl sm:text-5xl md:text-6xl mb-10 md:mb-12">Tickets</h2>
 
-                    <button className="bg-[#8B5F80] hover:bg-[#A37496] text-white font-nico text-2xl px-12 py-4 rounded-2xl transition-all shadow-lg border border-white/20">
+                    <button className="bg-gradient-to-r from-[#8B5F80] to-[#A37496] hover:from-[#A37496] hover:to-[#C08BA8] text-white font-nico text-xl md:text-2xl px-12 py-4 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] border border-white/20 active:scale-95">
                         HERE!
                     </button>
                 </div>
 
                 {/* Contact Us Card */}
-                <div className="bg-[#2E1C3B]/90 backdrop-blur-md rounded-[3rem] p-12 flex flex-col items-center justify-center text-center border border-white/10 shadow-xl min-h-[400px]">
-                    <h2 className="font-nico text-white text-5xl md:text-6xl mb-12">Contact us</h2>
+                <div className="bg-[#2E1C3B]/90 backdrop-blur-md rounded-[2.5rem] p-8 md:p-12 flex flex-col items-center justify-center text-center border border-white/10 shadow-[0_0_40px_rgba(75,0,130,0.4)] min-h-[350px] md:min-h-[400px] animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                    <h2 className="font-nico text-white text-4xl sm:text-5xl md:text-6xl mb-10 md:mb-12">Contact us</h2>
 
-                    <div className="grid grid-cols-2 gap-x-8 gap-y-6 w-full max-w-md">
-                        <p className="font-nico text-white text-2xl md:text-3xl text-right">name</p>
-                        <p className="font-nico text-white text-2xl md:text-3xl text-left">number</p>
-
-                        <p className="font-nico text-white text-2xl md:text-3xl text-right">name</p>
-                        <p className="font-nico text-white text-2xl md:text-3xl text-left">number</p>
+                    <div className="w-full max-w-md space-y-6">
+                        <div className="flex justify-between items-center bg-white/5 p-4 rounded-xl border border-white/5 hover:bg-white/10 transition-colors">
+                            <span className="font-nico text-purple-200 text-lg md:text-2xl">Sarah J.</span>
+                            <span className="font-tilt text-white text-lg md:text-2xl">+91 98765 43210</span>
+                        </div>
+                        <div className="flex justify-between items-center bg-white/5 p-4 rounded-xl border border-white/5 hover:bg-white/10 transition-colors">
+                            <span className="font-nico text-purple-200 text-lg md:text-2xl">Mike R.</span>
+                            <span className="font-tilt text-white text-lg md:text-2xl">+91 98123 45678</span>
+                        </div>
                     </div>
                 </div>
 

@@ -4,6 +4,7 @@ import About from './components/About'
 import Speakers from './components/Speakers'
 import Schedule from './components/Schedule'
 import Tickets from './components/Tickets'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Speakers />
         <Schedule />
         <Tickets />
+        <Footer />
       </div>
     </div>
   )

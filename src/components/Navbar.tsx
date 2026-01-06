@@ -8,19 +8,26 @@ const Navbar = () => {
     const navItems = ['Home', 'About', 'Speakers', 'Schedule', 'Tickets'];
 
     return (
-        <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-6xl">
-            <div className="relative bg-[#7B4B74]/90 backdrop-blur-md rounded-full px-8 py-4 flex justify-between items-center border border-white/20 shadow-lg shadow-purple-900/40">
-                {/* Logo - Added based on user request */}
-                <div className="flex-shrink-0 mr-auto md:mr-0 w-8 h-8 md:w-12 md:h-12 rounded-full overflow-hidden border border-white/20">
-                    <img src="/SpaceUp.jpg" alt="Logo" className="w-full h-full object-cover" />
+        <nav className="fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl transition-all duration-300">
+            <div className="relative bg-[#2E1C3B]/60 backdrop-blur-xl rounded-full px-6 md:px-8 py-3 md:py-4 flex justify-between items-center border border-white/10 shadow-[0_0_20px_rgba(107,33,168,0.3)]">
+                {/* Logo */}
+                <div className="flex-shrink-0 mr-auto flex items-center gap-3">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border-2 border-purple-500/50 shadow-lg shadow-purple-500/20">
+                        <img src="/SpaceUp.jpg" alt="SpaceUp Logo" className="w-full h-full object-cover" />
+                    </div>
                 </div>
 
                 {/* Hamburger Menu (Mobile only) */}
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="text-white text-2xl md:hidden ml-4 focus:outline-none"
+                    className="md:hidden text-white p-2 focus:outline-none z-50 relative"
+                    aria-label="Toggle menu"
                 >
-                    {isOpen ? '✕' : '☰'}
+                    <div className="space-y-1.5">
+                        <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+                        <span className={`block w-6 h-0.5 bg-white transition-opacity duration-300 ${isOpen ? 'opacity-0' : ''}`}></span>
+                        <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+                    </div>
                 </button>
 
                 {/* Desktop Menu */}
@@ -29,29 +36,31 @@ const Navbar = () => {
                         <a
                             key={item}
                             href={`#${item.toLowerCase()}`}
-                            className="font-nico text-white text-lg tracking-widest hover:text-purple-200 transition-colors uppercase"
+                            className="font-nico text-white text-sm lg:text-base tracking-widest hover:text-purple-300 transition-colors uppercase relative group"
                         >
                             {item}
+                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
                         </a>
                     ))}
                 </div>
             </div>
 
             {/* Mobile Menu Dropdown */}
-            {isOpen && (
-                <div className="absolute top-full left-0 w-full mt-4 bg-[#7B4B74]/95 backdrop-blur-md rounded-3xl p-8 flex flex-col items-center gap-6 border border-white/20 md:hidden shadow-xl animate-fade-in">
-                    {navItems.map((item) => (
+            <div className={`absolute top-full left-0 w-full mt-2 overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="bg-[#2E1C3B]/95 backdrop-blur-xl rounded-3xl p-8 flex flex-col items-center gap-6 border border-white/10 shadow-2xl">
+                    {navItems.map((item, index) => (
                         <a
                             key={item}
                             href={`#${item.toLowerCase()}`}
                             onClick={() => setIsOpen(false)}
-                            className="font-nico text-white text-xl tracking-widest hover:text-purple-200 transition-colors uppercase"
+                            className="font-nico text-white text-lg tracking-widest hover:text-purple-300 transition-colors uppercase animate-fade-in-up"
+                            style={{ animationDelay: `${index * 100}ms` }}
                         >
                             {item}
                         </a>
                     ))}
                 </div>
-            )}
+            </div>
         </nav>
     );
 };
